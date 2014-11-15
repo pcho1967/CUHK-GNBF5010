@@ -1,0 +1,34 @@
+use warnings;
+use strict;
+
+open snpFile, "pos.txt" or die $!;
+my @snp = <snpFile>;
+close snpFile;
+
+open annoDB, "hg19_refGene.txt" or die $!;
+my %anno;
+
+while(<annoDB>){
+  my @fields = split "\t";
+ #add this to skip next if chromosome number >1 and <23 we need special handling on X & Y chromosome
+  if(($fields[2] =~ m/chr(\d)+/)==0){next;}
+  my ($refChr) = ($fields[2] =~ m/chr(\d+)/);
+  my $start = $fields[4];
+  my $end = $fields[5]; 
+  $anno{$refChr."\t".$start."\t".$end} = $fields[12];
+}
+close annoDB;
+
+for my $snp (@snp){
+  chomp($snp);
+  my ($chr, $pos) = split "\t", $snp;
+  for my $refPos (keys %anno){
+    my($refChr, $start, $end) = split "\t",$refPos;
+#skip this code if chormonsome is unmatch    
+    if($chr eq $refChr){
+      if($pos >= $start && $pos <= $end){
+        print $chr, "\t", $pos, "\t", $anno{$refPos},"\n";
+      }
+    }
+  }
+}
