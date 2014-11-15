@@ -1,5 +1,3 @@
-# http://www.pythontutor.com/visualize.html#mode=display
-
 #----------------------------------------------------------------------
 def SimpleIteration(n):
  a,b = 1,1
@@ -34,17 +32,7 @@ def MemorizedRecursive(n):
     else:
         return MemorizedRecursive(n-1) + MemorizedRecursive(n-2)
  
-#----------------------------------------------------------------------
-def MatrixExponentiation(x):
-    """"""
-    return x
 
-
-#----------------------------------------------------------------------
-def FastDoubling(x):
-
-	return x
- 	
 #----------------------------------------------------------------------
 if __name__ == "__main__":
     import sys
@@ -56,10 +44,6 @@ if __name__ == "__main__":
     elif algorithim == "sr":
         print SimpleRecursive(valFib)
     elif algorithim == "mr":
-        print MemorizedRecursive(valFib)
-    elif algorithim == "me":
-        print MatrixExponentiation(valFib)
-    elif algorithim == "fd":
-        print FastDoubling(valFib)		
+        print MemorizedRecursive(valFib)	
     else:
         pass
