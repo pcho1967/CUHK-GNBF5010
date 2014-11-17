@@ -1,8 +1,0 @@
-setup.py
-Fib/Fib.py
-Fib/__init__.py
-Fib.egg-info/PKG-INFO
-Fib.egg-info/SOURCES.txt
-Fib.egg-info/dependency_links.txt
-Fib.egg-info/not-zip-safe
-Fib.egg-info/top_level.txt
