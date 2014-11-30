@@ -1,0 +1,61 @@
+---
+title: "GNBF5010-Assignment-5"
+author: "Ping Chong Ho"
+date: "Saturday, November 29, 2014"
+output:
+  slidy_presentation:
+    keep_md: yes
+---
+
+## Iterative Fibonacci
+
+A iterative fibonacci function which print out the nth fibonacci number:
+
+```{r}
+fib2 <- function(n){
+  start <- Sys.time()
+  if(n==0||n==1){
+    print(n)
+    return(n)}
+  if(n==2) return(1)
+  f1 = f2 = 1
+    print(f1)
+  for(i in seq(1,n-1)){
+    f=f1+f2
+    print(f1)
+    f2=f1
+    f1=f
+  }
+  end <- Sys.time()
+  print(end-start)
+}
+```
+
+
+For example the 10th Fibonacci sequence
+```{r}
+fib2(10)
+```
+
+
+## Plot 1 to 300 Fibonacci against time by iterative Fibonacci
+```{r}
+y <- 1:300
+plot(sapply(y,fib2))
+```
+
+## How to create mark down file and export to HTML in RStudio
+RStudio provide a easy setup on knitr with package and export markdown file in one step effort.
+
+After install Knit package. A icon provide a quick creation of Rmd file to HTML or PDF
+![Diagram 1](RStudio_2014-11-30_14-54-24.png)
+
+It also provide save as md file function
+![Diagram 2](RStudio_2014-11-30_14-54-53.png)
+
+## Conclusion
+In R languages, we can program same Fibonacci algorithm as in C, Java or Python. But with the use of Knit. We can provide a reporducbile report with a just-in-time R scripit.
+
+
+
+
